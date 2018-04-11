@@ -57,6 +57,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4777729201433522}
+  - component: {fileID: 65852172244239704}
   m_Layer: 0
   m_Name: FenceLong (1)
   m_TagString: Untagged
@@ -125,6 +126,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4365124645482554}
+  - component: {fileID: 65178604069522706}
   m_Layer: 0
   m_Name: FenceLong
   m_TagString: Untagged
@@ -450,6 +452,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d48bf2190ea9990478b126e5e2540a8d, type: 3}
+--- !u!65 &65178604069522706
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915030336641612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16, y: 10, z: 0.6}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!65 &65287342266197354
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -498,3 +512,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.9929466, y: 4.157121, z: 0.5947074}
   m_Center: {x: -3.7047186, y: 2.0575993, z: 0.0110358}
+--- !u!65 &65852172244239704
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1613249164174902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16, y: 10, z: 0.6}
+  m_Center: {x: 0, y: 5, z: 0}
