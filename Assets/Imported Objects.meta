@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 0ca50aab9b36a4047bd1092ae52d842b
 folderAsset: yes
 timeCreated: 1523447672
+=======
+guid: 8478568b0ac5dc24b80189c672b53bd2
+folderAsset: yes
+timeCreated: 1523462588
+>>>>>>> CoreMechanics
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
