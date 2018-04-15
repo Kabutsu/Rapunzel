@@ -12,7 +12,7 @@ public class Raycast : MonoBehaviour
 	public float maxWitchDistance = 50.0f;
 	public float timeLookingAtWitch = 0.0f;
 	public float maxTimeToLook = 4f;
-
+    public LayerMask whatToHit;
 
 	void Awake()
 	{
@@ -25,10 +25,10 @@ public class Raycast : MonoBehaviour
 		Vector3 forward = transform.TransformDirection(Vector3.forward);
 		
 		//checks if we see an object
-		if (Physics.Raycast(transform.position, forward, out hit))
+		if (Physics.Raycast(transform.position, forward, out hit, whatToHit))
 		{
 
-			if (hit.distance <= maxWitchDistance && hit.collider.gameObject.CompareTag("Witch"))
+			if (hit.distance <= maxWitchDistance && hit.collider.gameObject.CompareTag("Witch") && !hit.collider.isTrigger)
 			{
 				lookingAtWitch = true;
 			}
@@ -38,11 +38,10 @@ public class Raycast : MonoBehaviour
 			}
 			
 			//checks if we're close enough to pick it up
-			if (hit.distance <= maxPickUpDistance && hit.collider.gameObject.CompareTag("Pick Up"))
+			if (hit.distance <= maxPickUpDistance && hit.collider.gameObject.CompareTag("Pick Up") && !hit.collider.isTrigger)
 			{
 
 				canShowHoverText = true;
-				
 				if (Input.GetMouseButtonDown(0))
 				{
 					player.inventory.Add(hit.collider.gameObject);	//adds item to inventory
