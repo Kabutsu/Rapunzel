@@ -10,13 +10,15 @@ public class Raycast : MonoBehaviour
 	private bool lookingAtWitch = false;
 	public float maxPickUpDistance = 10.0f;
 	public float maxWitchDistance = 50.0f;
-	public float timeLookingAtWitch = 0.0f;
+	private float timeLookingAtWitch = 0.0f;
 	public float maxTimeToLook = 4f;
     public LayerMask whatToHit;
+    public WizardFollow wizard;
 
 	void Awake()
 	{
 		player = GetComponent<Player>();
+        wizard = GameObject.FindGameObjectWithTag("Overlord").GetComponent<WizardFollow>();
 	}
 	
 	// Update is called once per frame
@@ -46,7 +48,6 @@ public class Raycast : MonoBehaviour
 				{
 					player.inventory.Add(hit.collider.gameObject);	//adds item to inventory
 					hit.collider.gameObject.SetActive(false);		// can probably do other stuff later
-					Debug.Log("Picked Up");
 				}
 			}
 			else
@@ -64,6 +65,7 @@ public class Raycast : MonoBehaviour
 			{
 				Debug.Log("Ouch");
 				timeLookingAtWitch = 0.0f;
+                wizard.LookedAt();
 			}
 		}
 		else
@@ -79,5 +81,10 @@ public class Raycast : MonoBehaviour
 			GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 150, 20), "Click to pick up");
 		}
 	}
+
+    public bool LookingAtWitch()
+    {
+        return lookingAtWitch;
+    }
 	
 }
