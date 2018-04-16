@@ -45,7 +45,17 @@ public class WizardFollow : MonoBehaviour {
     private void Teleport()
     {
         lookedAt = false;
-        Debug.Log("Teleport");
+        float newX = Random.Range(MINIMUM_X, MAXIMUM_Z);
+        float newZ = Random.Range(MINIMUM_Z, MAXIMUM_Z);
+
+        myTransform.position = new Vector3(newX, myTransform.position.y, newZ);
+
+        RaycastHit hit;
+        Vector3 down = myTransform.TransformDirection(Vector3.down);
+        if (Physics.Raycast(myTransform.position, down, out hit, 100f, whatToHit))
+        {
+            wizardTransform.position = new Vector3(myTransform.position.x, hit.point.y + 2.5f, myTransform.position.z);
+        }
     }
 
     private void AdvanceTowardsPlayer()
@@ -62,7 +72,6 @@ public class WizardFollow : MonoBehaviour {
         if (Physics.Raycast(myTransform.position, down, out hit, 100f, whatToHit)) {
             wizardTransform.position = new Vector3(myTransform.position.x, hit.point.y + 2.5f, myTransform.position.z);
         }
-        Debug.Log("wizardTransform.position = " + wizardTransform.position);
     }
 
     private bool WithinBounds()
@@ -97,5 +106,10 @@ public class WizardFollow : MonoBehaviour {
     public void LookedAt()
     {
         lookedAt = true;
+    }
+
+    public bool HasDoneDamage()
+    {
+        return lookedAt;
     }
 }

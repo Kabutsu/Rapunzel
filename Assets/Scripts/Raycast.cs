@@ -13,7 +13,7 @@ public class Raycast : MonoBehaviour
 	private float timeLookingAtWitch = 0.0f;
 	public float maxTimeToLook = 4f;
     public LayerMask whatToHit;
-    public WizardFollow wizard;
+    private WizardFollow wizard;
 
 	void Awake()
 	{
@@ -56,14 +56,14 @@ public class Raycast : MonoBehaviour
 			}
 		}
 
-		//adds time to how long you can look at the witch for
-		//resets if you turn away
-		if (lookingAtWitch)
+        //adds time to how long you can look at the witch for
+        //resets if you turn away
+        if (lookingAtWitch && !wizard.HasDoneDamage())
 		{
 			timeLookingAtWitch += Time.deltaTime;
 			if (timeLookingAtWitch > maxTimeToLook)		//look too long it hurts you (In text how frightening)
 			{
-				Debug.Log("Ouch");
+                player.Hit();
 				timeLookingAtWitch = 0.0f;
                 wizard.LookedAt();
 			}
