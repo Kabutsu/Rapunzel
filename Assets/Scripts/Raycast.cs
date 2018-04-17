@@ -46,7 +46,7 @@ public class Raycast : MonoBehaviour
 				canShowHoverText = true;
 				if (Input.GetMouseButtonDown(0))
 				{
-					player.inventory.Add(hit.collider.gameObject);	//adds item to inventory
+                    StorytellingEngine.ItemCollected();
 					hit.collider.gameObject.SetActive(false);		// can probably do other stuff later
 				}
 			}

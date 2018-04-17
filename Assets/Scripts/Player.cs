@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
 {
 
 	public List<GameObject> inventory;
-	private Rigidbody rb;
     private int lives = 3;
     public UnityEngine.UI.Image[] hearts = new UnityEngine.UI.Image[3];
     public Sprite damagedHeartImage;
@@ -13,7 +12,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		rb = GetComponent<Rigidbody>();
+        StorytellingEngine.Initialize(3, 1);
 		inventory = new List<GameObject>();
 	}
 	
@@ -27,14 +26,12 @@ public class Player : MonoBehaviour
     {
         lives--;
         hearts[lives].sprite = damagedHeartImage;
-        if (lives == 0) GameOver();
+        if (lives == 0) StorytellingEngine.GameOver(false);
     }
 
     private void GameOver()
     {
-        GameObject.Find("Overlord").GetComponent<WizardFollow>().enabled = false;
-        GetComponent<Raycast>().enabled = false;
-        Debug.Log("Game Over");
+        
     }
 
 }
