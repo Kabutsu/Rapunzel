@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public static class StorytellingEngine {
 
@@ -25,23 +26,13 @@ public static class StorytellingEngine {
 
     public static void GameOver(bool gameWon)
     {
-        if (gameWon)
-        {
-            GameWin();
-        }
-        else GameLose();
-    }
-
-    private static void GameWin()
-    {
-        Debug.Log("You Win");
-    }
-
-    private static void GameLose()
-    {
-
-        GameObject.Find("Overlord").GetComponent<WizardFollow>().enabled = false;
+        GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
         GameObject.Find("FPSController").GetComponent<Raycast>().enabled = false;
-        Debug.Log("Game Over");
+        GameObject.Find("Overlord").GetComponent<WizardFollow>().enabled = false;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().FadeScreen(gameWon);
     }
 }

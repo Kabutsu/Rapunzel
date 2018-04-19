@@ -78,7 +78,8 @@ public class Raycast : MonoBehaviour
 	{
 		if (canShowHoverText)
 		{
-			GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 150, 20), "Click to pick up");
+            GUI.skin.box.fontSize = 30;
+            GUI.Box(new Rect(Screen.width / 2 - 100, 5 * Screen.height / 6, 300, 40), "Click to pick up");
 		}
 	}
 
