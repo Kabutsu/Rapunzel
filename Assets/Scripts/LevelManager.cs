@@ -72,7 +72,7 @@ public class LevelManager : MonoBehaviour {
         restartButton.SetActive(!levelWon);
 
         levelButton.SetActive(true);
-        levelButton.GetComponentInChildren<UnityEngine.UI.Text>().text = (levelWon ? "Next level" : "Main menu");
+        levelButton.GetComponentInChildren<UnityEngine.UI.Text>().text = (!levelWon || levelNumber == 3 ? "Main menu" : "Next level");
 
         yield return null;
     }
