@@ -56,7 +56,8 @@ public class LevelManager : MonoBehaviour {
         levelButton.SetActive(false);
         panel.color = new Color(0f, 0f, 0f, 0f);
 
-        gameOverText.text = (levelWon ? "Level complete!" : "You got caught by the witch!");
+        gameOverText.text = (levelWon ? "Level complete!" : "You got caught by the Witch!");
+        gameOverText.color = (levelWon ? new Color(0.615f, 1f, 0f) : new Color(0.94f, 0.415f, 0.415f));
 
         yield return null;
         
