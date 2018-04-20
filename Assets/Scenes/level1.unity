@@ -1000,11 +1000,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab7fc405ea898b46ab52569b51b126a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 226590128}
+  blackCanvas: {fileID: 226590128}
   panel: {fileID: 563712738}
   restartButton: {fileID: 2010895711}
   levelButton: {fileID: 489286183}
   gameOverText: {fileID: 1907466962}
+  titleCanvas: {fileID: 0}
 --- !u!4 &258518972
 Transform:
   m_ObjectHideFlags: 0
