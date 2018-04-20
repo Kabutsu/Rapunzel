@@ -37,15 +37,26 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadLevel(string levelName)
     {
-        if(levelName == "thisLevel")
+        if (levelName == "thisLevel")               //restart level
         {
             SceneManager.LoadScene(thisLevelName);
-        } else if (levelNumber == 3 || !levelWon)
+        } else if (levelName == "campfire1")
         {
-            SceneManager.LoadScene("main");
+            SceneManager.LoadScene("campfire1");    //start the game from main menu
+        } else if (!levelWon)
+        {
+            SceneManager.LoadScene("main");         //quit to main menu
         } else
         {
-            SceneManager.LoadScene("campfire" + (levelNumber + 1));
+            if(thisLevelName.Substring(0, 5) == "level")
+            {
+                if (levelNumber == 3)
+                {
+                    SceneManager.LoadScene("main"); //game finished; quit to main menu
+                }
+                else SceneManager.LoadScene("campfire" + (levelNumber + 1));    //load the next campfire scene
+            }
+            else SceneManager.LoadScene("level" + levelNumber);                 //load the next level
         }
     }
 
