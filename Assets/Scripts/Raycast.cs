@@ -14,10 +14,14 @@ public class Raycast : MonoBehaviour
 	public float maxTimeToLook = 4f;
     public LayerMask whatToHit;
     private WizardFollow wizard;
+	public AudioClip[] soundFiles;
+	private Dictionary<string, int> soundBites;
 
 	void Awake()
 	{
 		player = GetComponent<Player>();
+		soundBites = new Dictionary<string, int>();
+		InitialiseAudioFiles();
         wizard = GameObject.FindGameObjectWithTag("Overlord").GetComponent<WizardFollow>();
 	}
 	
@@ -46,6 +50,7 @@ public class Raycast : MonoBehaviour
 				canShowHoverText = true;
 				if (Input.GetMouseButtonDown(0))
 				{
+					StartCoroutine(PlaySoundBite(hit.collider.gameObject));
                     StorytellingEngine.ItemCollected();
 					hit.collider.gameObject.SetActive(false);		// can probably do other stuff later
 				}
@@ -87,5 +92,22 @@ public class Raycast : MonoBehaviour
     {
         return lookingAtWitch;
     }
+
+	private void InitialiseAudioFiles()
+	{
+		for (int i = 0; i < soundFiles.Length; i++)
+		{
+			Debug.Log(soundFiles[i].name);
+			soundBites.Add(soundFiles[i].name, i);
+		}
+	}
+
+	private IEnumerator PlaySoundBite(GameObject gameObject)
+	{
+		AudioSource wordOfMouth = GetComponent<AudioSource>();
+		Debug.Log(gameObject.name);
+		wordOfMouth.PlayOneShot(soundFiles[soundBites[gameObject.name]]);
+		yield return new WaitForSeconds(soundFiles[soundBites[gameObject.name]].length);
+	}
 	
 }

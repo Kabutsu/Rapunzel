@@ -536,6 +536,10 @@ MonoBehaviour:
   whatToHit:
     serializedVersion: 2
     m_Bits: 256
+  soundFiles:
+  - {fileID: 8300000, guid: 01498358fefcb4eab898cb5d423749e0, type: 3}
+  - {fileID: 8300000, guid: 5ee539347a06d45c58b85d63d7494bdb, type: 3}
+  - {fileID: 8300000, guid: 9de6858b72b9a4e6a9c79a41a6ad85d9, type: 3}
 --- !u!4 &139766201 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4779735519981216, guid: 340acb77c9b40474f9fbc58e685fe1e7,
@@ -2707,6 +2711,10 @@ Prefab:
     - target: {fileID: 4667883773184382, guid: af84369b5a5a98841b68261a4dbc2ce0, type: 2}
       propertyPath: m_LocalScale.y
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115772212597582, guid: af84369b5a5a98841b68261a4dbc2ce0, type: 2}
+      propertyPath: m_Name
+      value: Rampion2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65557652861942680, guid: af84369b5a5a98841b68261a4dbc2ce0, type: 2}
@@ -5644,7 +5652,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1115772212597582, guid: af84369b5a5a98841b68261a4dbc2ce0, type: 2}
       propertyPath: m_Name
-      value: Rampion (1)
+      value: Rampion1
       objectReference: {fileID: 0}
     - target: {fileID: 4667883773184382, guid: af84369b5a5a98841b68261a4dbc2ce0, type: 2}
       propertyPath: m_LocalScale.x

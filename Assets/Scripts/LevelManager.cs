@@ -32,9 +32,10 @@ public class LevelManager : MonoBehaviour {
         if (storyteller != null) storytellerWordOfMouth = storyteller.GetComponent<AudioSource>();
 
         thisLevelName = SceneManager.GetActiveScene().name;
+        
         levelNumber = thisLevelName[thisLevelName.Length - 1];
 
-        if (thisLevelName.Substring(0, 8) == "campfire") StorytellingEngine.TellStory(storyteller);
+        if (thisLevelName.Contains("campfire")) StorytellingEngine.TellStory(storyteller);
 	}
 	
 	// Update is called once per frame
@@ -56,7 +57,7 @@ public class LevelManager : MonoBehaviour {
         if(thisLevelName == "main")
         {
             SceneManager.LoadScene("level1");
-        } else if (thisLevelName.Substring(0, 8) == "campfire")
+        } else if (thisLevelName.Contains("campfire"))
         {
             SceneManager.LoadScene("level" + (levelNumber + 1));
         } else
@@ -65,7 +66,7 @@ public class LevelManager : MonoBehaviour {
             {
                 if (levelNumber == 3)
                 {
-                    SceneManager.LoadScene("main");
+                    SceneManager.LoadScene("epilogue");
                 }
                 else SceneManager.LoadScene("campfire" + levelNumber);
             } else
