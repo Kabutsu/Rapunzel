@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour {
     public GameObject levelButton;
     public UnityEngine.UI.Text gameOverText;
     public Canvas titleCanvas;
+    public Canvas controlsCanvas;
+    public Canvas creditsCanvas;
 
     private string thisLevelName;
     private int levelNumber;
@@ -26,6 +28,8 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         blackCanvas.enabled = false;
+	    creditsCanvas.enabled = false;
+	    controlsCanvas.enabled = false;
 
         storyTelling = false;
         storyteller = GameObject.Find("Storyteller");
@@ -87,6 +91,30 @@ public class LevelManager : MonoBehaviour {
         StartCoroutine(FadeTitleOut());
 
         StorytellingEngine.TellStory(GameObject.Find("Storyteller"));
+    }
+    
+    public void ShowControls()
+    {
+        titleCanvas.enabled = false;
+        controlsCanvas.enabled = true;
+    }
+    
+    public void ShowCredits()
+    {
+        titleCanvas.enabled = false;
+        creditsCanvas.enabled = true;
+    }
+
+    public void HideControls()
+    {
+        controlsCanvas.enabled = false;
+        titleCanvas.enabled = true;
+    }
+    
+    public void HideCredits()
+    {
+        creditsCanvas.enabled = false;
+        titleCanvas.enabled = true;
     }
 
     private IEnumerator FadePanelIn(float panelAlpha)
