@@ -12,8 +12,8 @@ public class LevelManager : MonoBehaviour {
     public GameObject levelButton;
     public UnityEngine.UI.Text gameOverText;
     public Canvas titleCanvas;
-    public Canvas controlsCanvas;
-    public Canvas creditsCanvas;
+    public UnityEngine.UI.Image instructionsPanel;
+    public UnityEngine.UI.Text instructionsText;
 
     private string thisLevelName;
     private int levelNumber;
@@ -28,18 +28,30 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         blackCanvas.enabled = false;
-	    creditsCanvas.enabled = false;
-	    controlsCanvas.enabled = false;
 
         storyTelling = false;
         storyteller = GameObject.Find("Storyteller");
         if (storyteller != null) storytellerWordOfMouth = storyteller.GetComponent<AudioSource>();
 
         thisLevelName = SceneManager.GetActiveScene().name;
-        
-        levelNumber = thisLevelName[thisLevelName.Length - 1];
 
-        if (thisLevelName.Contains("campfire")) StorytellingEngine.TellStory(storyteller);
+        try
+        {
+            levelNumber = Convert.ToInt32(thisLevelName.Substring(thisLevelName.Length - 1));
+        } catch (FormatException)
+        {
+            levelNumber = 0;
+        }
+
+        Debug.Log(levelNumber);
+
+        if (thisLevelName.Contains("campfire") || thisLevelName == "epilogue")
+        {
+            StorytellingEngine.TellStory(storyteller);
+        } else if (thisLevelName.Contains("level"))
+        {
+            StartCoroutine(FadeInstructionsOut());
+        }
 	}
 	
 	// Update is called once per frame
@@ -58,12 +70,14 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadLevel(string levelName)
     {
-        if(thisLevelName == "main")
+        if (thisLevelName == "main")
         {
             SceneManager.LoadScene("level1");
         } else if (thisLevelName.Contains("campfire"))
         {
             SceneManager.LoadScene("level" + (levelNumber + 1));
+        } else if (thisLevelName == "epilogue") {
+            SceneManager.LoadScene("main");
         } else
         {
             if(levelWon)
@@ -88,33 +102,10 @@ public class LevelManager : MonoBehaviour {
 
     public void StartGame()
     {
+        GameObject.Find("LevelManager").GetComponent<MainMenuController>().Disable();
         StartCoroutine(FadeTitleOut());
 
         StorytellingEngine.TellStory(GameObject.Find("Storyteller"));
-    }
-    
-    public void ShowControls()
-    {
-        titleCanvas.enabled = false;
-        controlsCanvas.enabled = true;
-    }
-    
-    public void ShowCredits()
-    {
-        titleCanvas.enabled = false;
-        creditsCanvas.enabled = true;
-    }
-
-    public void HideControls()
-    {
-        controlsCanvas.enabled = false;
-        titleCanvas.enabled = true;
-    }
-    
-    public void HideCredits()
-    {
-        creditsCanvas.enabled = false;
-        titleCanvas.enabled = true;
     }
 
     private IEnumerator FadePanelIn(float panelAlpha)
@@ -191,5 +182,22 @@ public class LevelManager : MonoBehaviour {
     public void Storytelling()
     {
         storyTelling = true;
+    }
+
+    private IEnumerator FadeInstructionsOut()
+    {
+        yield return new WaitForSeconds(6f);
+
+        for(float t = 1; t > 0; t -= Time.deltaTime / 3f)
+        {
+            instructionsPanel.color = new Color(instructionsPanel.color.r, instructionsPanel.color.g, instructionsPanel.color.b, instructionsPanel.color.a * t);
+            instructionsText.color = new Color(instructionsText.color.r, instructionsText.color.g, instructionsText.color.b, instructionsText.color.a * t);
+            yield return null;
+        }
+
+        instructionsPanel.enabled = false;
+        instructionsText.enabled = false;
+
+        yield return null;
     }
 }
