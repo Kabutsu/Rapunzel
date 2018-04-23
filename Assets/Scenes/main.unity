@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.7544864, g: 0.69309133, b: 0.4153887, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4282,11 +4282,11 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 3
   m_TerrainData: {fileID: 15600000, guid: 32cb4b8bd820a46429fed04a478f6250, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
+  m_TreeDistance: 2000
+  m_TreeBillboardDistance: 150
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 250
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -5772,10 +5772,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 54f279b0b1ad1bf44aab495bfe93b2ea, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5783,7 +5783,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "  Assetts:\n  Castle Tower by felix steif is licensed under CC by 2.0"
+  m_Text: "      Assets:\n      Castle Tower by felix steif is licensed under CC by
+    2.0\n      Dark Wizard by Fernando Dominguez is licensed under CC-BY\n      Purple
+    Petals by Don Whitaker is licensed under CC-BY\n      Book (Red) by Darwin Yamamoto
+    is licensed under CC-BY\n      Wooden Shield by Jarlan Perez is licensed under
+    CC-BY\n      Sword by Jakob Hippe is licensed under CC-BY\n      Log by Google
+    Poly is licensed under CC-BY\n      Fonts \"Enchanted Land\" by Sharkshock and
+    \"Augusta\" by Dieter Steffmann sourced from Dafont.com\n      All assets in /Scripts
+    directory written by Sam Law and Adrian Kamulegeya and all assets in\n      /VoiceActing
+    directory recorded by Sam Law and Adrian Kamulegeya\n      All assets in /Scenes
+    directory made by Sam Law and Adrian Kamulegeya\n      All other assets sourced
+    from Unity Asset Store or Unity Standard Assets"
 --- !u!222 &1093645673
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7159,7 +7169,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 436637137}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999998
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7280,7 +7290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7845,7 +7855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8160,7 +8170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000028681143}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1899258685
@@ -8195,13 +8205,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Use WASD to move, and the mouse to look around. Hold "Shift"
-
-    while moving to sprint.
-
-
-    The garden is guarded by a deadly enchantress! Avoid her gaze if you want to make
-    it out alive!'
+  m_Text: "    Use WASD to move, and the mouse to look around. Hold \"Shift\"\n    while
+    moving to sprint.\n\n    The garden is guarded by a deadly enchantress! Avoid
+    her gaze if you want\n     to make it out alive!"
 --- !u!222 &1899258686
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8364,6 +8370,8 @@ MonoBehaviour:
   levelButton: {fileID: 0}
   gameOverText: {fileID: 0}
   titleCanvas: {fileID: 1340369459}
+  instructionsPanel: {fileID: 0}
+  instructionsText: {fileID: 0}
 --- !u!4 &1942790424
 Transform:
   m_ObjectHideFlags: 0

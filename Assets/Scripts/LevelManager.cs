@@ -118,7 +118,7 @@ public class LevelManager : MonoBehaviour {
             restartButton.SetActive(false);
             levelButton.SetActive(false);
 
-            gameOverText.text = (levelWon ? "Level complete!" : "You got caught by the Witch!");
+            gameOverText.text = (!levelWon ? "You got caught by the Witch!" : (levelNumber == 3 ? "Game complete!" : "Level complete!"));
             gameOverText.color = (levelWon ? new Color(0.615f, 1f, 0f) : new Color(0.94f, 0.415f, 0.415f));
         } catch (NullReferenceException) { }
         
@@ -137,7 +137,7 @@ public class LevelManager : MonoBehaviour {
             restartButton.SetActive(!levelWon);
 
             levelButton.SetActive(true);
-            levelButton.GetComponentInChildren<UnityEngine.UI.Text>().text = (!levelWon || levelNumber == 3 ? "Main menu" : "Next level");
+            levelButton.GetComponentInChildren<UnityEngine.UI.Text>().text = (!levelWon  ? "Main menu" : (levelNumber == 3 ? "Continue" : "Next level"));
         } catch (NullReferenceException) { }
 
         yield return null;
@@ -186,7 +186,7 @@ public class LevelManager : MonoBehaviour {
 
     private IEnumerator FadeInstructionsOut()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(7.5f);
 
         for(float t = 1; t > 0; t -= Time.deltaTime / 3f)
         {

@@ -13,6 +13,7 @@ public static class StorytellingEngine {
     {
         itemsToCollect = items;
         sceneName = scene;
+        itemsCollected = 0;
     }
 
     public static void ItemCollected()
