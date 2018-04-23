@@ -14,11 +14,13 @@ public class Raycast : MonoBehaviour
 	public float maxTimeToLook = 4f;
     public LayerMask whatToHit;
     private WizardFollow wizard;
+    private VoiceHandler voice;
 
 	void Awake()
 	{
 		player = GetComponent<Player>();
         wizard = GameObject.FindGameObjectWithTag("Overlord").GetComponent<WizardFollow>();
+        voice = GameObject.FindGameObjectWithTag("Voice").GetComponent<VoiceHandler>();
 	}
 	
 	// Update is called once per frame
@@ -46,6 +48,7 @@ public class Raycast : MonoBehaviour
 				canShowHoverText = true;
 				if (Input.GetMouseButtonDown(0))
 				{
+					StartCoroutine(voice.PlaySoundBite(hit.collider.gameObject));
                     StorytellingEngine.ItemCollected();
 					hit.collider.gameObject.SetActive(false);		// can probably do other stuff later
 				}
@@ -87,5 +90,6 @@ public class Raycast : MonoBehaviour
     {
         return lookingAtWitch;
     }
+
 	
 }

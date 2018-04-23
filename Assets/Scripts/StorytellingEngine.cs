@@ -5,14 +5,15 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public static class StorytellingEngine {
 
-    private static int levelNumber;
+    private static string sceneName;
     private static int itemsToCollect;
     private static int itemsCollected = 0;
     
-    public static void Initialize(int items, int level)
+    public static void Initialize(int items, string scene)
     {
         itemsToCollect = items;
-        levelNumber = level;
+        sceneName = scene;
+        itemsCollected = 0;
     }
 
     public static void ItemCollected()
@@ -33,6 +34,14 @@ public static class StorytellingEngine {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        GameObject.Find("LevelManager").GetComponent<LevelManager>().FadeScreen(gameWon);
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().FadeScreen(gameWon, 0.61f);
+    }
+
+    public static void TellStory(GameObject storyteller)
+    {
+        AudioSource wordOfMouth = storyteller.GetComponent<AudioSource>();
+        wordOfMouth.PlayOneShot(wordOfMouth.clip);
+
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().Storytelling();
     }
 }

@@ -6,14 +6,30 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Day-Night Skyboxes" t="Include">
-          <e p="readme.txt" t="Include" />
-          <e p="Textures" t="Include">
-            <e p="Readme for Assigning.txt" t="Include" />
+        <e p="Imported Objects" t="Include">
+          <e p="Baker House" t="Include">
+            <e p="readme.txt" t="Include" />
           </e>
-        </e>
-        <e p="Paper Environment Pack vol. 1" t="Include">
-          <e p="readme.txt" t="Include" />
+          <e p="BrokenVector" t="Include">
+            <e p="LowPolyShaders" t="Include">
+              <e p="Shaders" t="Include">
+                <e p="LowPolyPBRShader.shader" t="Include" />
+                <e p="LowPolyUnlitShader.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Cartoon lowpoly water well" t="Include">
+            <e p="readme.txt" t="Include" />
+          </e>
+          <e p="FreeLowPolyPack" t="Include">
+            <e p="readme.txt" t="Include" />
+          </e>
+          <e p="Mushroom house" t="Include">
+            <e p="StandardDoubleSided.shader" t="Include" />
+          </e>
+          <e p="Paper Environment Pack vol. 1" t="Include">
+            <e p="readme.txt" t="Include" />
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -22,9 +38,21 @@
             </e>
           </e>
         </e>
+        <e p="readme.txt" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="FireFlicker.cs" t="Include" />
+          <e p="LevelManager.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="PointLightControl.cs" t="Include" />
           <e p="Raycast.cs" t="Include" />
+          <e p="StorytellingEngine.cs" t="Include" />
+          <e p="WitchLaugh.cs" t="Include" />
+          <e p="WizardFollow.cs" t="Include" />
+        </e>
+        <e p="Skyboxes" t="Include">
+          <e p="Textures" t="Include">
+            <e p="Readme for Assigning.txt" t="Include" />
+          </e>
         </e>
         <e p="Standard Assets" t="Include">
           <e p="Characters" t="Include">

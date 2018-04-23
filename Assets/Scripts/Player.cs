@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-        StorytellingEngine.Initialize(3, 1);
+        StorytellingEngine.Initialize(3, SceneManager.GetActiveScene().name);
 		inventory = new List<GameObject>();
         damageImage = damagePanel.GetComponent<UnityEngine.UI.Image>();
         damageImage.enabled = false;
